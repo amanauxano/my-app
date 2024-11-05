@@ -4,8 +4,9 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import { useState, useEffect } from 'react';
 
+
 function App() {
-  const [mode, setMode] = useState('dark'); // Default to dark mode
+  const [mode, setMode] = useState('dark'); // Whether dark mode is enabled or not
   const [alert, setAlert] = useState(null);
 
   useEffect(() => {
@@ -40,7 +41,7 @@ function App() {
   return (
     <>
       <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} mode={mode} setAlert={setAlert} />
+      {/* <Alert alert={alert} mode={mode} setAlert={setAlert} /> */}
       <div className="container my-3">
         <TextForm heading="Enter the text to analyze below" mode={mode} showAlert={showAlert} />
       </div>
