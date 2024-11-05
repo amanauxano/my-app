@@ -2,11 +2,16 @@ import './App.css';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
-  const [mode, setMode] = useState('light'); // Whether dark mode is enabled or not
+  const [mode, setMode] = useState('dark'); // Default to dark mode
   const [alert, setAlert] = useState(null);
+
+  useEffect(() => {
+    document.body.style.backgroundColor = '#042743'; // Set initial background to dark
+    document.title = 'TextUtils - Dark Mode'; // Set initial title to dark mode
+  }, []);
 
   const showAlert = (message, type) => {
     setAlert({
@@ -23,12 +28,12 @@ function App() {
       setMode('dark');
       document.body.style.backgroundColor = '#042743';
       showAlert("Dark mode has been enabled", "success");
-      document.title = 'TextUtlils - Dark Mode';
+      document.title = 'TextUtils - Dark Mode';
     } else {
       setMode('light');
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");
-      document.title = 'TextUtlils - Light Mode';
+      document.title = 'TextUtils - Light Mode';
     }
   };
 
